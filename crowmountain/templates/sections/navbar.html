@@ -1,30 +1,91 @@
-<div class="container-fluid bg-danger">
-    <h1 class="text-danger">hello</h1>
-</div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Home</a>
-<div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/aboutus">About Us</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/contactus">Contact Us</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/educational">Educational</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/events">Events</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/burnnotice">Burn Notice</a>
-        </li>
-        {% if request.user.is_authenticated %}
-        <li class="nav-item active">
-            <a class="nav-link" href="../logout">Logout</a>
-        </li>
-        {% endif %}
-      </ul>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+{% load static %}
+
+<!-- Navbar background style CSS 
+     Navbar-custom2 is the red navbar, custom1 is the blue -->
+
+<style>
+    .navbar-custom {
+        background-color: #034f7f;
+        height:70px;
+    }
+
+    .navbar-custom2 {
+        background-color: #be1d2c;
+        margin-bottom: 0px;
+        height: 80px;
+    }
+
+    .navbar-custom .navbar-brand {
+        color: #d8ca7b;
+    }
+
+    .navbar-custom2 .navbar-brand {
+        color: #d8ca7b;
+    }
+
+    /*
+    Was experimenting with modifying position of logo-- this doesnt do anything 
+    -Clay
+    .navbar-brand > img {
+        position:sticky;
+    }
+    */
+</style>
+
+<nav class="navbar navbar-custom2 navbar-static-top">
+    <div class="container-fluid">
+
+        <ul class="nav justify-content-center">
+
+            <li class="">
+                <a class="navbar-brand" href="{% url 'index' %}">CROW MOUNTAIN FIRE DEPARTMENT</a>
+            </li>
+        </ul>
+
     </div>
-  </nav>
+</nav>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-custom navbar-static-top">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+
+
+        </div>
+
+        <div class="collapse navbar-collapse">
+
+            <!-- List of links across navbar -->
+            <ul class="nav justify-content-center">
+
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'aboutus' %}">About Us</a>
+                </li>
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'contactus' %}">Contact Us</a>
+                </li>
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'volunteer' %}">Volunteer</a>
+                </li>               
+                <li class="navbar-brand">
+                    <img src="{% static 'images/Logo.png' %}" width="175" height="165"/>
+                </li>
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'burnnotice' %}">Burn Notice</a>
+                </li>
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'events' %}">Events</a>
+                </li>
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'educational' %}">Educational</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
