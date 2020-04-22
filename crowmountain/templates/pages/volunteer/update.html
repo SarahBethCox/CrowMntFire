@@ -12,7 +12,7 @@
 
             <div id="alertMsg"> </div>
 
-            <form name="updateform" autocomplete="off" method="POST" action="./">
+            <form name="updateform" id="updateform" autocomplete="off" method="POST" action="./">
             {% csrf_token %}
                 <input type="hidden" name="came_from" value="updateform">
                 <input type="hidden" name="volunteerid" value="{{volunteer.CitizenID}}">
@@ -36,7 +36,7 @@
                     <div class="col-12">
                         <label for="address">Address</label>
                         <div class="form-group">
-                            <input type="text" class="form-control" value="{{volunteer.Address}}"  name="volunteerAddress" id="address" required >
+                            <input type="text" class="form-control" value="{{volunteer.Address}}"  name="volunteerAddress" id="address" readonly >
                         </div>
                     </div>  
                 </div>
@@ -45,7 +45,7 @@
                     <div class="col-5">
                         <label for="address">Phone</label>
                         <div class="form-group">
-                            <input type="text" class="form-control" value="{{volunteer.Phone}}"" name="phoneNumber" id="phoneNumber" required>
+                            <input type="text" class="form-control" value="{{volunteer.Phone}}" name="phoneNumber" id="phoneNumber" required>
                         </div>
                     </div>
                     <div class="col-5">
@@ -65,13 +65,14 @@
             
                 
                 <div id="btns">  
-                    <input type="submit" class="btn btn-danger" value="Send">
+                    <input type="button" class="btn btn-danger" value="Send" onclick="FormValidator();">
                     <a href="../" class="btn btn-danger">Cancel</a>
                 </div>  
             </form>
             </div>
         </div> 
     </div>
-    
+        
+  <script type="text/javascript" src="{% static 'js/update.js' %}"></script>
      
 {% endblock %}

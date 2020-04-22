@@ -6,32 +6,44 @@
 
 {% block content %}
  
-        {% if messages %}
+        {% comment %} {% if messages %} {% endcomment %}
           {% for message in  messages%}
-
+{% if "firstname" in message.tags%}
       <div class="modal " id="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title">Thank you</h5>
-            <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <img src="{%static 'images/crowmtnlogo.png'%}" width='100' height='90'>
+           
             </div>
             <div class="modal-body">
-            {% if 'success' in message.tags%}
+            
+            
+            <p>Thank you, {{message}}</p>
+            
+{% endif %}
+        {% endfor %}
+
+          {% for message in  messages%}
+
+            {% if "email" in message.tags%}
               <p class="{{message.tags}}">Your form has been sucessfully submitted and a confirmation email was sent to <span>{{message}}<span> </p>
             {% endif %}
+
             {% if 'error' in message.tags%}
-              <p class="{{message.tags}}">Unfortunatelly there was an error and you form was not submiteed </p>
+              <p class="{{message.tags}}">Unfortunatelly there was an error and your form was not submiteed </p>
             {% endif %}
-          </div>  
+{% if "firstname" in message.tags%}
+          </div> 
+          <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="close" data-dismiss="modal">Close</button>
+          </div>   
           </div>
         </div>
       </div>
-
+{% endif %}
         {% endfor %}
-      {% endif %}
+      {% comment %} {% endif %} {% endcomment %}
       
 <div class="container">
     <div class="row ">
@@ -41,6 +53,20 @@
     </div>
     <div class="row">
         <div class="col">
+        {% for message in  messages%}
+        {% if "updatesucess" in message.tags%}
+        <div class="alert alert-success updatesuccessmsg" id='updatesuccessmsg' role="alert">
+        <h6 >{{message}}</h6>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% for message in  messages%}
+        {% if "updateerror" in message.tags%}
+        <div class="alert alert-success updatesuccessmsg" role="alert">
+        <h6 >{{message}}</h6>
+        </div>
+        {% endif %}
+        {% endfor %}
             <h2>Become a Volunteer </h2>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             </p>
@@ -54,7 +80,7 @@
             <p><a href="/volunteer/form" role="button" class="btn btn-danger">Volunteer Form</a></p>
              <p>OR</p>
             <p>Update existing Volunteer Request</p>
-            <form method="POST" action="/volunteer/">
+            <form method="POST" id ='volunteerIDForm' action="/volunteer/">
                 {% csrf_token %}
                 
                 <input type="hidden" name="came_from" value="volunteerIDForm">
@@ -77,9 +103,9 @@
 </div>
 
   
-  <script type="text/javascript" src="{% static 'js/admin.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/volunteer.js' %}"></script>
 
- 
+    
 {% endblock %}
 
  
