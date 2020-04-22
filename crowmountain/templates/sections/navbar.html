@@ -25,22 +25,13 @@
     .navbar-custom2 .navbar-brand {
         color: #d8ca7b;
     }
-
-    /*
-    Was experimenting with modifying position of logo-- this doesnt do anything 
-    -Clay
-    .navbar-brand > img {
-        position:sticky;
-    }
-    */
 </style>
 
 <nav class="navbar navbar-custom2 navbar-static-top">
     <div class="container-fluid">
 
         <ul class="nav justify-content-center">
-
-            <li class="">
+            <li>
                 <a class="navbar-brand" href="{% url 'index' %}">CROW MOUNTAIN FIRE DEPARTMENT</a>
             </li>
         </ul>
@@ -52,40 +43,33 @@
 
 <nav class="navbar navbar-custom navbar-static-top">
     <div class="container-fluid">
-
-        <div class="navbar-header">
-
-
-        </div>
-
         <div class="collapse navbar-collapse">
 
             <!-- List of links across navbar -->
             <ul class="nav justify-content-center">
 
-                <li class="">
+                <li>
                     <a class="navbar-brand" href="{% url 'aboutus' %}">About Us</a>
                 </li>
-                <li class="">
+                <li>
                     <a class="navbar-brand" href="{% url 'contactus' %}">Contact Us</a>
                 </li>
-                <li class="">
+                <li>
                     <a class="navbar-brand" href="{% url 'volunteer' %}">Volunteer</a>
                 </li>               
-                <li class="navbar-brand">
-                    <img src="{% static 'images/Logo.png' %}" width="175" height="165"/>
+                <li>
+                    <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" width="175" height="165"></a>
                 </li>
-                <li class="">
+                <li>
                     <a class="navbar-brand" href="{% url 'burnnotice' %}">Burn Notice</a>
                 </li>
-                <li class="">
+                <li>
                     <a class="navbar-brand" href="{% url 'events' %}">Events</a>
                 </li>
-                <li class="">
+                <li>
                     <a class="navbar-brand" href="{% url 'educational' %}">Educational</a>
                 </li>
             </ul>
         </div>
-
     </div>
 </nav>

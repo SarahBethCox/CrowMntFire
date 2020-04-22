@@ -1,1 +1,44 @@
-<footer><b>Footer goes here</b></footer>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+{% load static %}
+
+<style>
+    footer li {
+        color: #d8ca7b;
+        display: inline;
+        list-style-type: none;
+        font-size: 12pt;
+        margin: 20px;
+    }
+
+    footer ul {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    footer {
+        background-color: #034f7f;
+        height: 80px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<footer>
+    <ul>
+        <li>
+            <img src="{% static 'images/phone.png' %}" width="30" height="30">
+            (479) 968-4472
+        </li>
+        <li>
+            1432 Crow Mountain Rd, Russellville, AR 72802
+        </li>
+        <li>
+            <img src="{% static 'images/email_OG.png' %}" width="30" height="30">
+            contactus@crowmntfire.com
+        </li>
+    </ul>
+</footer>
