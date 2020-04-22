@@ -11,9 +11,7 @@
 .btn-sm{
     margin-left: 10px;
 }
-tbody tr:nth-of-type(odd){
-    background-color: lightgray;
-}
+
 .searchform .col-10{
     padding-left: 0!important;
 
@@ -57,8 +55,11 @@ table th{
 table{
     border-color: gray;
 
-    background-color: lightgray;
+    background-color: #ddd9d2;
     
+}
+tbody tr{
+    background-color: #ddd9d2;
 }
 .tableColumn{
     padding: 0;
@@ -87,7 +88,12 @@ border-radius: 0;
 .searchform{
     display: none;
 }
-
+.searchFormContainer{
+    display: none!important;
+}
+td{
+    border: 1px solid white;
+}
 }
 
 
@@ -97,5 +103,8 @@ table:not(:first-of-type){
 }
 .mobilesearchform{
     display: none;
+}
+tbody tr:nth-of-type(odd){
+    background-color: lightgray;
 }
 }
