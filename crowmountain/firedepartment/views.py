@@ -47,7 +47,7 @@ def volunteer(request):
 
         messages.error(request, 'There was a problem and you information was not updated', extra_tags='updateerror')
         url = reverse('volunteer')
-        # request.session['posted_page_visited'] = True
+        request.session['posted_page_visited'] = True
         return HttpResponseRedirect(url) 
 
     elif request.POST.get("came_from")=="volunteerform":
@@ -62,21 +62,21 @@ def volunteer(request):
         
         fulladdress = address + " " + city + ", AR " + zipcode
         citizendata = Citizen(First_Name=firstname, Last_Name=lastname, Phone=phone, Address=fulladdress,Age=age, Email=email)
-        # citizendata.save()
-        # citizen = citizendata
+        citizendata.save()
+        citizen = citizendata
 
-        # volunterdata = Volunteer(Citizen=citizen, Acceptance_Status="Accepted")
-        # volunterdata.save()
+        volunterdata = Volunteer(Citizen=citizen, Acceptance_Status="Accepted")
+        volunterdata.save()
        
         message = Mail(
         from_email=email,
-        to_emails='hescalante@atu.edu',
+        to_emails='scox20@atu.edu',
         subject='New Volunteer',
         html_content='<strong>Hola</strong>')
         try:
             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-            # response = sg.send(message)
-            # status = response.status_code
+            response = sg.send(message)
+            status = response.status_code
             status=202
             if status==202:
                 messages.success(request, email, extra_tags='email')
