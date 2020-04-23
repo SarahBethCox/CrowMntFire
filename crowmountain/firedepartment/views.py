@@ -30,6 +30,8 @@ def volunteer(request, status, email ):
     print("hoal")
 
 def volunteer(request):
+   
+
     if request.POST.get("came_from")=="updateform":
         firstname = request.POST.get("firstName")
         lastname = request.POST.get("lastName")
@@ -145,9 +147,9 @@ def administrator(request):
     searchedValue = request.POST.get("search")
     #Gets all Citizens objects that exist in the Volunter model 
     volunteers = Volunteer.objects.filter(Citizen__in=citizens)
-
     vid=request.POST.get('vid')
     print(request.POST)
+    
     if request.POST.get("remove"):
         Citizen.objects.filter(CitizenID=vid).delete()
     if request.POST.get("search"):

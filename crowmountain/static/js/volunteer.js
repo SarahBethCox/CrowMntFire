@@ -29,15 +29,15 @@ function FormValidator(){
     alertMsg=false;
 
     fullAddress = form.volunteerAddress.value+ " " + form.city.value + " " + "Arkansas" +" "+ form.zipCode.value ;
-
+    
     ValidateEmail(form.email.value);
     ValidatePhoneNumber(form.phoneNumber.value);
     ValidateAge(form.age.value);
-
+    
     if(form.volunteerAddress.value!==''){
         var service = new google.maps.DistanceMatrixService;
         var vm =this;
-
+        
         service.getDistanceMatrix({
             origins: ["1432 Crow Mountain Rd, Russellville, AR 72802"],
             destinations: [fullAddress],
@@ -69,7 +69,7 @@ function FormValidator(){
             temp2 = distance.substring(str+1,distance.length);
             //The distance vairable can now be used as a number.
             distance = temp1 + temp2;
-
+        
             if(distance>20){
                 document.getElementById("alertMsg").insertAdjacentHTML("afterbegin",'<div class="alert alert-danger" style=" id="errorMiles" class="close " role="alert">We are sorry but, you must live between a 20 mile radius</div>');
                 errorflag = true;
@@ -101,7 +101,7 @@ function ValidateEmail(email) {
 
 function ValidatePhoneNumber(phone){
     if(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone) && phone.length==10){
-
+        
     }
     else if(betweenRadius ===false){
     errorsArr.push("phone")
@@ -130,7 +130,7 @@ function DisplayError(){
     else{
         errorsList =  errorsArr.slice(0, -1).join(', ') + ', and ' + errorsArr.slice(-1);
     }
-
+    
     document.getElementById("alertMsg").insertAdjacentHTML("afterbegin",'<div class="alert alert-danger" style="" class="close " role="alert"> Please enter a valid ' +errorsList+ '.</div>');           
     setTimeout(() => {
         document.getElementById("alertMsg").firstChild.remove();
@@ -138,3 +138,5 @@ function DisplayError(){
     errorsArr=[];
     errorsList =[];
 }
+
+
