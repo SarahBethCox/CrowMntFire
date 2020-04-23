@@ -18,9 +18,9 @@
                   <input type="submit" value="Search" class="btn btn-danger" width="30">
 
                 </form>
-                <form class="form-inline " method="POST" action="">
+                <form class="form-inline reset" method="POST" action="">
                   {% csrf_token %}
-                  <button type="submit" class="btn btn-danger" width="30">Reset</button>
+                  <button type="submit" class="btn btn-danger " width="30">Reset</button>
 
                 </form>
 
@@ -73,16 +73,15 @@
                     <td>{{volunteer.Citizen.Phone}}</td>
                     <td>{{volunteer.Citizen.Email}}</td>
                     <td>
-                    <form name="statusform" id="statusform" method="post" action="">
+                    <form name="statusform" id="statusform{{volunteer.id}}" method="POST" action="/administrator/" onchange="document.getElementById('statusform{{volunteer.id}}').submit();" >
                     {% csrf_token %}
-                    <input type="text" hidden name="vid" value="{{volunteer.id}}">
-                    <select name="dropdown" class="form-control-sm" onChange="document.getElementById('statusform').submit();">
-                      <option value="{{volunteer.Acceptance_Status}}" disabled selected>{{volunteer.Acceptance_Status}}</option>
-                      <option value="Accepted">Accepted</option>
-
-                      <option value="Rejected">Rejected</option>
-                      <option value="Pending">Pending</option>
+                    <select name="dropdown" id="dropdown{{volunteer.id}}" class="form-control-sm" onchange="console.log(document.getElementById('dropdown{{volunteer.id}}').value);" >
+                      <option value="{{volunteer.Acceptance_Status}}" disabled selected >{{volunteer.Acceptance_Status}}</option>
+                      <option value="Accepted" id="accepted">Accepted</option>
+                      <option value="Rejected" id="rejected" >Rejected</option>
+                      <option value="Pending" id="pending" >Pending</option>
                     </select>
+                    <input type="text" hidden name="vid" value="{{volunteer.id}}">
                     </form>
                     </td>
 
@@ -91,14 +90,7 @@
                     <input type="text" hidden name="vid" value="{{volunteer.Citizen.CitizenID}}">
                     <input type="submit" name="remove" class="btn-sm btn-danger" value="Remove">
                     </form>
-                    <!-- <form id="statusform" action="" method="POST">
-                        <select name="status" id="status" class="form-control-sm">
-                            <option value="Accepted">Pending</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Accepted">Rejected</option>
-                        </select>
-                        <button type="submit" class="btn-sm btn-danger">Update</button>
-                    </form> -->
+                    
                     </td>
                   </tr>
                   {% endfor %}

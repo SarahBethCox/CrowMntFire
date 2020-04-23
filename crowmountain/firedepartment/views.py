@@ -38,9 +38,15 @@ def volunteer(request):
         phone = request.POST.get("phoneNumber")
         email = request.POST.get("email")
         volunteerid =request.POST.get("volunteerid")
-        Citizen.objects.filter(CitizenID=volunteerid).update(First_Name=firstname, Last_Name=lastname, Phone=phone, Address=address,Age=age, Email=email)
+        if(Citizen.objects.filter(CitizenID=volunteerid).update(First_Name=firstname, Last_Name=lastname, Phone=phone, Address=address,Age=age, Email=email)):
+            messages.success(request, 'Your information was sucessfully updated!', extra_tags='updatesucess')
+            url = reverse('volunteer')
+            return HttpResponseRedirect(url) 
 
-        return render(request, 'pages/volunteer/volunteer.html')
+        messages.error(request, 'There was a problem and you information was not updated', extra_tags='updateerror')
+        url = reverse('volunteer')
+        # request.session['posted_page_visited'] = True
+        return HttpResponseRedirect(url) 
 
     elif request.POST.get("came_from")=="volunteerform":
         firstname = request.POST.get("firstName")
@@ -71,7 +77,8 @@ def volunteer(request):
             # status = response.status_code
             status=202
             if status==202:
-                messages.success(request, email)
+                messages.success(request, email, extra_tags='email')
+                messages.success(request, firstname, extra_tags='firstname')
             else:
                 messages.error(request, 'Failed')
         except Exception as e:
@@ -140,6 +147,7 @@ def administrator(request):
     volunteers = Volunteer.objects.filter(Citizen__in=citizens)
 
     vid=request.POST.get('vid')
+    print(request.POST)
     if request.POST.get("remove"):
         Citizen.objects.filter(CitizenID=vid).delete()
     if request.POST.get("search"):
@@ -147,6 +155,7 @@ def administrator(request):
         volunteers = Volunteer.objects.filter(Citizen__in=citizens)
         return render(request, 'pages/admin/adminpanel.html', {'volunteers':volunteers,'searchedValue':searchedValue})
     if request.POST.get("dropdown"):
+        print(request.POST.get("vid"))
         Volunteer.objects.filter(id=vid).update(Acceptance_Status=request.POST.get("dropdown"))
     if request.POST.get("filterbyageform"):
         if  asc =='None' or asc=='False':
