@@ -3,73 +3,55 @@
 
 {% load static %}
 
-<!-- Navbar background style CSS 
-     Navbar-custom2 is the red navbar, custom1 is the blue -->
-
 <style>
-    .navbar-custom {
-        background-color: #034f7f;
-        height:70px;
-    }
-
-    .navbar-custom2 {
+    #title { /* For the Crow Mnt title */
         background-color: #be1d2c;
-        margin-bottom: 0px;
-        height: 80px;
-    }
-
-    .navbar-custom .navbar-brand {
         color: #d8ca7b;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        word-wrap: none;
     }
 
-    .navbar-custom2 .navbar-brand {
+    #title h1 {
+        font-size: 2.5em;
+    }
+
+    #bar { /* For the navbar itself */
+        background-color: #034f7f;
+        color: #d8ca7b;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    #bar a {
         color: #d8ca7b;
     }
 </style>
 
-<nav class="navbar navbar-custom2 navbar-static-top">
-    <div class="container-fluid">
-
-        <ul class="nav justify-content-center">
-            <li>
-                <a class="navbar-brand" href="{% url 'index' %}">CROW MOUNTAIN FIRE DEPARTMENT</a>
-            </li>
-        </ul>
-
+<nav>
+    <!-- Header -->
+    <div id="title">
+        <h1>CROW MOUNTAIN FIRE DEPARTMENT</h1>
     </div>
-</nav>
 
-<!-- Navbar -->
-
-<nav class="navbar navbar-custom navbar-static-top">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse">
-
-            <!-- List of links across navbar -->
-            <ul class="nav justify-content-center">
-
-                <li>
-                    <a class="navbar-brand" href="{% url 'aboutus' %}">About Us</a>
-                </li>
-                <li>
-                    <a class="navbar-brand" href="{% url 'contactus' %}">Contact Us</a>
-                </li>
-                <li>
-                    <a class="navbar-brand" href="{% url 'volunteer' %}">Volunteer</a>
-                </li>               
-                <li>
-                    <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" width="175" height="165"></a>
-                </li>
-                <li>
-                    <a class="navbar-brand" href="{% url 'burnnotice' %}">Burn Notice</a>
-                </li>
-                <li>
-                    <a class="navbar-brand" href="{% url 'events' %}">Events</a>
-                </li>
-                <li>
-                    <a class="navbar-brand" href="{% url 'educational' %}">Educational</a>
-                </li>
-            </ul>
-        </div>
+    <!-- List of links across navbar -->
+    <div id="bar">
+            <a class="navbar-brand" href="{% url 'aboutus' %}">About Us</a>
+        
+            <a class="navbar-brand" href="{% url 'contactus' %}">Contact Us</a>
+        
+            <a class="navbar-brand" href="{% url 'volunteer' %}">Volunteer</a>
+        
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo_centered.png' %}" height="150"></a>
+        
+            <a class="navbar-brand" href="{% url 'burnnotice' %}">Burn Notice</a>
+        
+            <a class="navbar-brand" href="{% url 'events' %}">Events</a>
+        
+            <a class="navbar-brand" href="{% url 'educational' %}">Educational</a>
     </div>
 </nav>

@@ -4,41 +4,51 @@
 {% load static %}
 
 <style>
-    footer li {
-        color: #d8ca7b;
-        display: inline;
-        list-style-type: none;
-        font-size: 12pt;
-        margin: 20px;
-    }
-
-    footer ul {
-        margin-right: auto;
-        margin-left: auto;
-    }
-
     footer {
         background-color: #034f7f;
+        color: #d8ca7b;
         height: 80px;
         margin-top: 20px;
+    }
+
+    #contact { /* For the bar of information */
+        height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
+    #contact a {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    #admin { /* For the admin button */
+        height: 20px;
+        margin-top: -25px;
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
 </style>
 
 <footer>
-    <ul>
-        <li>
+    <div id="contact">
+        <a>
             <img src="{% static 'images/phone.png' %}" width="30" height="30">
             (479) 968-4472
-        </li>
-        <li>
+        </a>
+        <a>
             1432 Crow Mountain Rd, Russellville, AR 72802
         </li>
-        <li>
+        <a>
             <img src="{% static 'images/email_OG.png' %}" width="30" height="30">
             contactus@crowmntfire.com
-        </li>
-    </ul>
+        </a>
+    </div>
+
+    <div id="admin">
+        <a href="{% url 'login' %}">Admin</a>
+    </div>
 </footer>
