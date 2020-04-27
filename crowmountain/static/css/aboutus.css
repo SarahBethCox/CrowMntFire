@@ -1,3 +1,25 @@
 h1{
     color: red;
 }
+body{
+    background-color: #EBEBEB;
+}
+img{
+    max-width: 100%;
+}
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.name{
+    color: #4E4C4C;
+    font-size: 1.5em;
+}
+
+.description{
+    color: #707070;
+    font-size: 0.8em;
+}
