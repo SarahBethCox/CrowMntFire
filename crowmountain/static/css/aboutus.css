@@ -4,7 +4,7 @@ h1{
 body{
     background-color: #EBEBEB;
 }
-img{
+.col-12 img{
     max-width: 100%;
 }
 

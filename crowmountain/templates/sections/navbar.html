@@ -1,57 +1,182 @@
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 {% load static %}
 
+<!-- Navbar background style CSS
+     Navbar-custom2 is the red navbar, custom is the blue
+   
+    **** Had to switch to using navbar-dark, as it supports toggler
+    -->
+
 <style>
-    #title { /* For the Crow Mnt title */
-        background-color: #be1d2c;
-        color: #d8ca7b;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        word-wrap: none;
-    }
-
-    #title h1 {
-        font-size: 2.5em;
-    }
-
-    #bar { /* For the navbar itself */
+    .navbar-dark {
         background-color: #034f7f;
-        color: #d8ca7b;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 25px;
+        min-height: 0px!important;
     }
 
-    #bar a {
+    .navbar-custom2 {
+        background-color: #be1d2c;
+        margin-bottom: 0px;
+    }
+
+    .navbar-dark .nav-link {
         color: #d8ca7b;
     }
+
+    .navbar-custom2 .nav-link {
+        color: #d8ca7b;
+    }
+    header{
+        background-color: #be1d2c;
+
+    }
+    header > div{
+        font-size: 20pt;
+        height: 70px;
+        width: 100vw;
+        display: table-cell;
+        vertical-align: middle;
+text-align: center;
+        
+    }
+    .navbar-toggler  {
+  border-color: white!important;
+  
+} 
+.navbar-toggler >div{
+    height: 2px;
+    width: 25px;
+    border: 1px solid white;
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 4px;
+
+}
+
+    
+    header div p{
+        margin: 0px;
+        text-align: center;
+        color: #d8ca7b;
+        display: inline-block;
+    }
+    
+  
+   header button{
+       display: none;
+   }
+   .menuCol{
+       display: flex;
+       justify-content: center;
+   }
+   #headerlogo{
+       padding: 0;
+   }
+   #headerlogo img{
+       display: none;
+   }
+   #bluHeader{
+    background-color: #034f7f ;
+    color: white;
+    text-align: center;
+   }
+   @media screen and (min-width: 767px) {
+    .navbar-dark {
+        max-height: 70px!important;
+    }
+    #navMenu{
+      
+      text-align: center!important;
+
+      
+   }
+   
+   }
+   @media screen and (max-width: 767px) {
+    #menuLogo{
+        display: none;
+    }
+    #header .col{
+       
+   }
+    #headerlogo img{
+       display: block;
+   }
+    header div p{
+        font-size: 14pt;
+   }
+   .navbar-dark {
+        max-height: 450px!important;
+    }
+   header button{
+       display: inline-block!important;
+       float: right;
+       margin-top: 7px!important;
+   }
+   .navbar{
+    border-top-width: 0px!important;
+           padding: 0;
+   }
+   header div p{
+    color: white;
+   }
+   
+   }
+  
 </style>
 
-<nav>
-    <!-- Header -->
-    <div id="title">
-        <h1>CROW MOUNTAIN FIRE DEPARTMENT</h1>
+<div id="bluHeader"><strong>TO REPORT AN EMERGENCY CALL </strong></div>
+<header>
+    <div class="col" id="headerlogo" style="width: auto!important;">
+        <a href="/home"><img src="{% static 'images/Logo.png' %}"width="55" height="50" /></a>
     </div>
+    <div class="col">
+        <p>CROW MOUNTAIN FIRE DEPARTMENT</p>  
+    </div>
+        <div class="col"> 
+            <button class="navbar-toggler navbar-expand-md " type="button" data-toggle="collapse" data-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+    </div>
+</header>
 
-    <!-- List of links across navbar -->
-    <div id="bar">
-            <a class="navbar-brand" href="{% url 'aboutus' %}">About Us</a>
-        
-            <a class="navbar-brand" href="{% url 'contactus' %}">Contact Us</a>
-        
-            <a class="navbar-brand" href="{% url 'volunteer' %}">Volunteer</a>
-        
-            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" height="150"></a>
-        
-            <a class="navbar-brand" href="{% url 'burnnotice' %}">Burn Notice</a>
-        
-            <a class="navbar-brand" href="{% url 'events' %}">Events</a>
-        
-            <a class="navbar-brand" href="{% url 'educational' %}">Educational</a>
+
+<nav class="navbar  navbar-expand-md navbar-dark">
+
+   
+    <div class="collapse navbar-collapse " id="navMenu">
+        <div class="col"></div>
+        <div class="col menuCol">
+      <ul class="navbar-nav mx-auto ml-auto align-items-center mt-2 mt-lg-0">
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'aboutus' %}">ABOUT US</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'contactus' %}">CONTACT US</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'volunteer' %}">VOLUNTEER</a>
+        </li>
+        <li class="nav-item active" id="menuLogo"">
+            <a href="/"><img src="{% static 'images/Logo.png' %}" height="140"/></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'burnnotice' %}">BURN NOTICE</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'events' %}">EVENTS</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'educational' %}">EDUCATIONAL</a>
+        </li>
+
+      </ul>
     </div>
-</nav> 
+    <div class="col"></div>
+
+    </div>
+</div>
+  </nav>
