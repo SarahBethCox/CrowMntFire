@@ -3,8 +3,94 @@
 {%block styles%}
 <link rel="stylesheet" href="{%static 'css/educational.css'%}">
 {%endblock%}
-
 {% block content %}
-    <h1>Check out the fire truck!</h1>
-    <img class="truck" src="{%static 'images/fireTruck.jpeg'%}" alt="Fire Truck">
+
+<br>
+<br>
+<h2>Educational Tools</h2>
+<br>
+
+<p>
+    Use these interactive images to learn more about the gear that Crow Mountain Fire Department Uses.
+</p>
+
+
+<script>
+    function writeDesc1(txt) {
+        document.getElementById("desc").innerHTML = txt;
+    }
+
+    function writeHead1(txt) {
+        document.getElementById("name").innerHTML = txt;
+    }
+
+    function writeDesc2(txt2) {
+        document.getElementById("desc2").innerHTML = txt2;
+    }
+
+    function writeHead2(txt2) {
+        document.getElementById("name2").innerHTML = txt2;
+    }
+
+    function writeDesc3(txt3) {
+        document.getElementById("desc3").innerHTML = txt3;
+    }
+
+    function writeHead3(txt3) {
+        document.getElementById("name3").innerHTML = txt3;
+    }
+</script>
+
+<div class="container-fluid">
+    <div class="row justify-content-start">
+        <div class="col-md">
+           
+            <div class="card" style="width:755px; height:700px;" >
+                <img class="card-img-top" src="{% static 'images/Engine1b.jpg' %}" alt="Card image cap" style="width:755px;height:500px;" usemap="#firetruck-map">
+               
+                <map name="firetruck-map">
+                    <area target="" alt="" title="Crew Cab" href="" coords="215,183,276,310" shape="rect" onmouseover="writeDesc3('The cab can hold up to 4 firefighters.'); writeHead3('Crew Cab')">
+                    <area target="" alt="" title="Hose Connections" href="" coords="363,280,425,192" shape="rect" onmouseover="writeDesc3('Serve as a medium to direct water from hydrants to fires.'); writeHead3('Hose and Fire Hydrant Connections')">
+                    <area target="" alt="" title="Master Stream" href="" coords="395,182,355,156" shape="rect" onmouseover="writeDesc3('The master stream is used for large fires. It can spray 1000 gallons of water per minute.'); writeHead3('Master Stream')">
+                    <area target="" alt="" title="Pump Panel" href="" coords="350,351,293,300" shape="rect" onmouseover="writeDesc3('Using this, a firefighter can direct all of the water coming in and out of the fire pump at up to 1500 gallons per minute.'); writeHead3('Pump Panel')">
+                    <area target="" alt="" title="Hose" href="" coords="353,294,321,259" shape="rect" onmouseover="writeDesc3('400 feet of 1 3/4 inch hoses capable of flowing 150 gallons of water per minute.'); writeHead3('Hose')">
+                    <area target="" alt="" title="Tools" href="" coords="492,224,707,227,703,342,610,336,609,282,492,279" shape="poly" onmouseover="writeDesc3('Extra hoses, irons, flashlights, and other tools aid our firefighters in emergencies.'); writeHead3('Tools & Equipment')">
+                </map>
+
+                <div class="card-body" height="50 px">
+                <p class ="card-title" id="name3" style="font-size: 14pt;"></p>
+                <p class ="card-text" id="desc3" style="font-size: 12pt;">Hover over different interest points (blue dots) of the firefighter to see a description.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md">
+
+            <div class="card" style="width:424px; height:700px;" >
+               
+                <img src="{% static 'images/FF1b.jpg' %}" alt="Card image cap" style="width:424px;height:500px;" usemap="#firefighter-map"/>
+                <map name="firefighter-map">
+                    <area target="" alt="Helmet" title="Helmet" href="" coords="237,50,168,16" shape="rect" onmouseover="writeDesc2('Modern firefighter helmet with shield.'); writeHead2('Helmet')">
+                    <area target="" alt="Voice Amplifier" title="Voice Amplifier" href="" coords="181,94,164,70" shape="rect" onmouseover="writeDesc2('Allows firefighters to speak through their mask.'); writeHead2('Voice Amplifier')">
+                    <area target="" alt="SCBA mask" title="SCBA mask" href="" coords="230,90,182,54" shape="rect" onmouseover="writeDesc2('Self-Contained Breathing Apparatus allows.'); writeHead2('SCBA Mask')">
+                    <area target="" alt="Pressure Gauge" title="Pressure Gauge" href="" coords="171,179,155,114" shape="rect"onmouseover="writeDesc2('Air pressure guage for SCBA (Self-Contained Breathing Apparatus).'); writeHead2('Pressure Guage')">
+                    <area target="" alt="Irons" title="Irons" href="" coords="188,283,125,219" shape="rect" onmouseover="writeDesc2('Axe and halligan, or set of irons, used for forcible entry and ventilation.'); writeHead2('Set of Irons')">
+                    <area target="" alt="Flashlight" title="Flashlight" href="" coords="196,197,176,148" shape="rect" onmouseover="writeDesc2('High powered flashlight.'); writeHead2('Flashlight')">
+                    <area target="" alt="Knee Pads" title="Knee Pads" href="" coords="262,388,145,332" shape="rect" onmouseover="writeDesc2('Built in for knee support.'); writeHead2('Knee Pads')">
+                    <area target="" alt="Boots" title="Boots" href="" coords="275,474,129,425" shape="rect" onmouseover="writeDesc2('Steel-toed, heavy duty rubber boots.'); writeHead2('Boots')">
+                    <area target="" alt="Radio Strap" title="Radio Strap" href="" coords="246,217,230,232,189,136,179,102" shape="poly" onmouseover="writeDesc2('Used for inter-personel communications.'); writeHead2('Radio Strap')">
+                </map>
+               
+                <div class="card-body">
+                    <p class ="card-title" id="name2" style="font-size: 14pt;"></p>
+                    <p class ="card-text" id="desc2" style="font-size: 12pt;">Hover over different interest points (blue dots) of the firefighter to see a description.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 {% endblock %}
