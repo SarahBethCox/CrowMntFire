@@ -19,6 +19,39 @@ from sendgrid.helpers.mail import Mail
 
 # Create your views here.
 def index(request):
+    if request.POST.get("came_from")=="burnnoticeform":
+        firstname = request.POST.get("firstName")
+        lastname = request.POST.get("lastName")
+        location = request.POST.get("location")
+        age = request.POST.get("age")
+        phone = request.POST.get("phoneNumber")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+        city = request.POST.get("city")
+        zipcode = request.POST.get("zipCode")
+        
+        # volunteerid =request.POST.get("volunteerid")
+        message = Mail(
+        from_email=email,
+        to_emails='hescalante@atu.edu',
+        subject='Burn Notice',
+        html_content='<!DOCTYPE html> <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title><style>#logo, h2, p, #loginBtn{text-align: center;}a{box-shadow: 1px 1px 3px black;padding: 6px 15px;border-radius: 25px;text-decoration: none;color: white;background-color: #A80B1B;}</style></head><body><div id="logo"><img src="logo.png" height="130" width="138" alt="logo"></div><h2>Burn Notification</h2><p><strong>Name:</strong>'+ fistname +' '+lastname +'</p><strong>Location:</strong>'+ Location + city + zipcode +'</p> <strong>Email:</strong>'+email +'</p> <strong>Phone:</strong>'+ phone +'</p><strong>Message:</strong>'+ message +'</p></body></html>')
+        try:
+            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+            response = sg.send(message)
+            status = response.status_code
+            # status=202
+            if status==202:
+                mymessage = 'Thank you,' +firstname+'. Your notification was received'
+                return render(request, 'pages/home.html',{"msg":mymessage})
+            else:
+                mymessage = 'We were having problems submiting you notification, please try again'
+                return render(request, 'pages/home.html',{"msg":mymessage})
+
+        except Exception as e:
+            print(e)        
+            url = reverse('index')
+            return HttpResponseRedirect(url) 
     return render(request, 'pages/home.html')
 
 def aboutus(request):
@@ -109,6 +142,7 @@ def updateform(request):
     return render(request, 'pages/volunteer/update.html', {'volunteer':volunteer})
 
 def burnnotice(request):
+
     return render(request, 'pages/burnnotice/burnnotice.html')
 
 def events(request):
