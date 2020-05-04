@@ -4,5 +4,32 @@
 <link rel="stylesheet" href="{%static 'css/home.css'%}">
 {%endblock%}
 {% block content %}
-<h1>Home content</h1>
+
+<div>
+    
+    <div class="container-md">
+        <div class="row justify-content-md-center">
+        <div class="row">
+            <div class="col align-self-start">
+                <h2>Welcome to the official Crow Mountain Fire Rescue Department Website!</h2>
+                <h3>We have committed ourselves to providing high quality fire and emergency services to our community.</h3>
+                <p>
+                    Crow Mountain Fire Department is a full-service, high performance, emergency service agency.
+                    Our history of dedicated service dates back to the founding of our community more than 75 years ago.
+                </p>
+            </div>
+            <div class="col-md">
+                <img src="{%static 'images/pumpers.jpg' %}" class="image-fluid" width="500">
+                <quote>
+                    "Firefighters are essential to the safety and security of our local communities. We owe it to these men
+                    women to provide them with better training and equipment so they can do their jobs more effectively
+                    and safely." -- Carl Levin
+                </quote>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+</div>
+
 {% endblock %}
