@@ -66,6 +66,9 @@ div.modal-footer{
     text-align: center;
     color: black!important;
 }
+#wrapper{
+    margin-top: 25px;
+}
 @media only screen and (max-width: 799px){
     .mobile{
         display: flex;
