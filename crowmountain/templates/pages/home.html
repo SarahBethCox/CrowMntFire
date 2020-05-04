@@ -11,7 +11,10 @@
         <div class="row justify-content-md-center">
         <div class="row">
             <div class="col align-self-start">
-                <h2>Welcome to the official Crow Mountain Fire Rescue Department Website!</h2>
+                <h2>{% if successmessage%}
+              <p >Your form has been sucessfully submitted.</p>
+    {% endif %}
+                Welcome to the official Crow Mountain Fire Rescue Department Website!</h2>
                 <h3>We have committed ourselves to providing high quality fire and emergency services to our community.</h3>
                 <p>
                     Crow Mountain Fire Department is a full-service, high performance, emergency service agency.
