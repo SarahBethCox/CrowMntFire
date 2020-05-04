@@ -4,8 +4,10 @@
 <link rel="stylesheet" href="{%static 'css/volunteer.css'%}">
 {%endblock%}
 
+
+
 {% block content %}
- 
+ <div id="wrapper">
         {% comment %} {% if messages %} {% endcomment %}
           {% for message in  messages%}
 {% if "firstname" in message.tags%}
@@ -102,10 +104,10 @@
     </div>
 </div>
 
-  
+   </div>
   <script type="text/javascript" src="{% static 'js/volunteer.js' %}"></script>
 
     
 {% endblock %}
 
- 
+

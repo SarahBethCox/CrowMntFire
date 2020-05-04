@@ -93,6 +93,11 @@ text-align: center;
    }
    
    }
+   @media screen and (max-width: 850px) {
+    ul li a{
+    font-size: 13.5px;
+}
+   }
    @media screen and (max-width: 767px) {
     #menuLogo{
         display: none;
@@ -129,7 +134,7 @@ text-align: center;
 <div id="bluHeader"><strong>TO REPORT AN EMERGENCY CALL </strong></div>
 <header>
     <div class="col" id="headerlogo" style="width: auto!important;">
-        <a href="/home"><img src="{% static 'images/Logo.png' %}"width="55" height="50" /></a>
+        <a href="/"><img src="{% static 'images/Logo.png' %}"width="55" height="50" /></a>
     </div>
     <div class="col">
         <p>CROW MOUNTAIN FIRE DEPARTMENT</p>  
@@ -148,7 +153,7 @@ text-align: center;
 
    
     <div class="collapse navbar-collapse " id="navMenu">
-        <div class="col"></div>
+        <!-- <div class="col"></div> -->
         <div class="col menuCol">
       <ul class="navbar-nav mx-auto ml-auto align-items-center mt-2 mt-lg-0">
         <li class="nav-item active">
@@ -175,7 +180,7 @@ text-align: center;
 
       </ul>
     </div>
-    <div class="col"></div>
+    <!-- <div class="col"></div> -->
 
     </div>
 </div>
